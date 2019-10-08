@@ -3,12 +3,14 @@ services:
   zookeeper:
     container_name: zookeeper
     image: wurstmeister/zookeeper
+    restart: unless-stopped
     ports:
       - "2181:2181"
   kafka:
     container_name: kafka
     build: .
     image: kafka:2.3.0
+    restart: unless-stopped
     ports:
       - "9092:9092"
     environment:
